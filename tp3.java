@@ -15,6 +15,8 @@ public class tp3 {
 		aff(tri(tab));
 		System.out.println(occu(tab,10));
 		System.out.println(dicho(tab,10));
+		System.out.println(media(tab));
+		System.out.println(mode(tab));
 
 		}
 	
@@ -118,10 +120,47 @@ public class tp3 {
 	
 	//--  BONUS  --
 
+	public static int media(int [] tab)
+	{
+		int lg=tab.length;
+		int trans=0;
+		for (int i=0;i<lg;i++){
+			
+			for (int j=0;j<lg-1;j++){
+				if (tab[j]>tab[j+1]){
+					trans=tab[j];
+					tab[j]=tab[j+1];
+					tab[j+1]=trans;
+				}
+			}
+		}
+		return tab[(lg-1)/2];
+	}
+		
+		public static int mode(int [] tab)
+		{
+			int lg=tab.length;
+			int val=0;
+			int nbmax=0;
+			int nb=0;
+			for (int i=0;i<lg;i++){
+				
+				for (int j=0;j<lg;j++){
+					if (tab[j]==tab[i]){
+					nb++;
+					}
+				}
+				if (nb>nbmax){
+					nbmax=nb;
+					val=tab[i];
+				}
+				nb=0;
+
+			}
+			return val;
 	
 	
-	
-	
+		}
 	
 	
 	
